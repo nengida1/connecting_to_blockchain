@@ -27,15 +27,15 @@ def connect_with_middleware(contract_json):
 	# TODO complete this method
 	# The first section will be the same as "connect_to_eth()" but with a BNB url
 	  
-    try:
-        with open(f"{CRED_DIR}/bnb_testnet_url.txt", "r") as f:
-            bnb_url = f.read().strip()
-    except FileNotFoundError:
+  try:
+    with open(f"{CRED_DIR}/bnb_testnet_url.txt", "r") as f:
+      bnb_url = f.read().strip()
+  except FileNotFoundError:
         # fallback public RPC (less reliable, but prevents your code from being incomplete)
-        bnb_url = "https://data-seed-prebsc-1-s1.binance.org:8545/"
+    bnb_url = "https://data-seed-prebsc-1-s1.binance.org:8545/"
 
-    w3 = Web3(HTTPProvider(bnb_url))
-    assert w3.is_connected(), f"Failed to connect to provider at {bnb_url}"
+  w3 = Web3(HTTPProvider(bnb_url))
+  assert w3.is_connected(), f"Failed to connect to provider at {bnb_url}"
 
 
 	# The second section requires you to inject middleware into your w3 object and
